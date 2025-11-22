@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeStream - Music & Podcast Player</title>
+    <meta name="description" content="Minimalist music and podcast player">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="logo">VibeStream</h1>
+
+        <nav class="tabs">
+            <button class="tab active" id="musicTab">Music</button>
+            <button class="tab" id="podcastTab">Podcast</button>
+        </nav>
+
+        <div class="user-profile">
+            <button class="btn-theme" id="themeBtn" title="Toggle Theme">☀</button>
+            <span class="user-name" id="userName">User</span>
+            <button class="btn-logout" id="logoutBtn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="contentArea">
+        <div class="content-layout">
+            <div class="content-left" id="mainContentLeft">
+                <!-- Dynamic Content will be injected here -->
+            </div>
+
+            <div class="content-right">
+                <div class="disk-container" id="diskContainer">
+                    <div class="disk" id="disk">
+                        <div class="disk-inner">
+                            <img src="" alt="Cover" id="diskCover" class="disk-cover">
+                            <div class="disk-hole"></div>
+                        </div>
+                    </div>
+                    <div class="disk-shadow"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Now Playing Modal (Spotify-like) -->
+    <div class="now-playing-modal" id="nowPlayingModal">
+        <div class="now-playing-header">
+            <button class="btn-close-modal" id="closeNowPlaying">↓</button>
+            <div class="now-playing-source" id="nowPlayingSource">Playing from Library</div>
+            <div></div>
+        </div>
+
+        <div class="now-playing-content">
+            <!-- Large Cover Art / Video Player -->
+            <div class="now-playing-media" id="nowPlayingMediaContainer">
+                <div class="np-disk-wrapper">
+                    <div class="np-disk" id="npDisk">
+                        <div class="np-disk-inner">
+                            <img src="" alt="Cover" id="npDiskCover" class="np-disk-cover">
+                            <div class="np-disk-hole"></div>
+                        </div>
+                    </div>
+                </div>
+                <img id="nowPlayingCover" src="" alt="Cover Art">
+                <video id="nowPlayingVideo" controls controlsList="nodownload"></video>
+            </div>
+
+            <!-- Track Info -->
+            <div class="now-playing-info">
+                <h2 class="now-playing-title" id="nowPlayingTitle">Track Title</h2>
+                <p class="now-playing-artist" id="nowPlayingArtist">Artist Name</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="now-playing-progress">
+                <span class="time" id="npCurrentTime">0:00</span>
+                <div class="progress-bar-large" id="npProgressBar">
+                    <div class="progress-fill" id="npProgressFill"></div>
+                </div>
+                <span class="time" id="npTotalTime">0:00</span>
+            </div>
+
+            <!-- Controls -->
+            <div class="now-playing-controls">
+                <button class="btn-control-large music-only" id="npShuffleBtn" title="Shuffle">⇄</button>
+                <button class="btn-control-large" id="npPrevBtn" title="Previous">⏮</button>
+                <button class="btn-control-large btn-play-large" id="npPlayBtn" title="Play">▶</button>
+                <button class="btn-control-large" id="npNextBtn" title="Next">⏭</button>
+                <button class="btn-control-large music-only" id="npRepeatBtn" title="Repeat">↻</button>
+
+                <!-- Podcast Controls -->
+                <button class="btn-control-large podcast-only" id="npSkipBackBtn" title="Skip Back 30s"
+                    style="display: none;">⏪ 30</button>
+                <button class="btn-control-large podcast-only" id="npSkipForwardBtn" title="Skip Forward 30s"
+                    style="display: none;">30 ⏩</button>
+                <button class="btn-control-large podcast-only" id="npSpeedBtn" title="Playback Speed"
+                    style="display: none;">1x</button>
+            </div>
+
+            <!-- Volume -->
+            <div class="now-playing-volume">
+                <span>🔊</span>
+                <input type="range" id="npVolumeSlider" min="0" max="100" value="70" class="volume-slider-large">
+            </div>
+        </div>
+    </div>
+
+    <!-- Player Bar -->
+    <div class="player" id="playerBar">
+        <div class="player-info">
+            <div class="player-title" id="playerTitle">Select a track</div>
+            <div class="player-artist" id="playerArtist">—</div>
+        </div>
+
+        <div class="player-controls">
+            <button class="btn-control music-only" id="shuffleBtn" title="Shuffle">⇄</button>
+            <button class="btn-control" id="prevBtn" title="Previous">⏮</button>
+            <button class="btn-control btn-play" id="playBtn" title="Play">▶</button>
+            <button class="btn-control" id="nextBtn" title="Next">⏭</button>
+            <button class="btn-control music-only" id="repeatBtn" title="Repeat">↻</button>
+
+            <!-- Podcast Controls -->
+            <button class="btn-control podcast-only" id="skipBackBtn" title="Skip Back 30s" style="display: none;">⏪
+                30</button>
+            <button class="btn-control podcast-only" id="skipForwardBtn" title="Skip Forward 30s"
+                style="display: none;">30 ⏩</button>
+            <button class="btn-control podcast-only" id="speedBtn" title="Playback Speed"
+                style="display: none;">1x</button>
+        </div>
+
+        <div class="player-progress">
+            <span class="time" id="currentTime">0:00</span>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="time" id="totalTime">0:00</span>
+        </div>
+
+        <div class="player-volume">
+            <span>🔊</span>
+            <input type="range" id="volumeSlider" min="0" max="100" value="70" class="volume-slider">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/music-player.js"></script>
+    <script src="js/podcast-player.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

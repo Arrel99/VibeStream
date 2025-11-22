@@ -1,0 +1,56 @@
+{
+  "music": [
+    {
+      "id": "music_001",
+      "title": "Deichuu ni Saku",
+      "artist": "Wolpis Kater",
+      "album": "Deichuu ni Saku",
+      "genre": "Pop",
+      "audioFile": "music/Wolpis Kater - 『Deichuu ni Saku』.mp3",
+      "coverFile": "covers/Wolpis Kater - 『Deichuu ni Saku』.jpg",
+      "duration": 290,
+      "playCount": 0,
+      "addedDate": "2025-01-15T10:00:00Z"
+    },
+    {
+      "id": "music_002",
+      "title": "Example Song 2",
+      "artist": "Example Artist",
+      "album": "Example Album",
+      "genre": "Pop",
+      "audioFile": "music/example_artist/example_album/song2.mp3",
+      "coverFile": "covers/example_album.jpg",
+      "duration": 210,
+      "playCount": 0,
+      "addedDate": "2025-01-15T10:00:00Z"
+    }
+  ],
+  "podcasts": [
+    {
+      "id": "podcast_001",
+      "title": "Episode 1: Introduction",
+      "show": "Example Podcast Show",
+      "description": "This is the first episode of our podcast series.",
+      "audioFile": "podcast/example_show/episode_001.mp3",
+      "coverFile": "covers/example_show.jpg",
+      "duration": 1800,
+      "playCount": 0,
+      "progress": 0,
+      "percentComplete": 0,
+      "addedDate": "2025-01-10T08:00:00Z"
+    },
+    {
+      "id": "podcast_002",
+      "title": "Episode 2: Getting Started",
+      "show": "Example Podcast Show",
+      "description": "In this episode, we discuss getting started.",
+      "audioFile": "podcast/example_show/episode_002.mp3",
+      "coverFile": "covers/example_show.jpg",
+      "duration": 2100,
+      "playCount": 0,
+      "progress": 0,
+      "percentComplete": 0,
+      "addedDate": "2025-01-12T08:00:00Z"
+    }
+  ]
+}
