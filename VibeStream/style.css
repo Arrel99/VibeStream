@@ -1166,77 +1166,76 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
-    top: 0;
-    height: calc(100vh - var(--header-height) - var(--player-height) - var(--space-xl) * 2);
-}
-
-/* ==================== Rotating Disk Animation ==================== */
-.disk-container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-}
-
-.disk {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: #111;
-    background: radial-gradient(circle, #111 0%, #111 30%, #222 31%, #111 32%, #111 40%, #222 41%, #111 42%, #111 50%, #222 51%, #111 52%, #111 60%, #222 61%, #111 62%, #111 70%, #222 71%, #111 72%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-direction: column;
+    gap: var(--space-lg);
 }
 
-.disk-inner {
-    width: 40%;
-    height: 40%;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    border: 2px solid #333;
+.auth-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
 }
 
-.disk-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.auth-form label {
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    color: var(--gray-200);
 }
 
-.disk-hole {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    background: #000;
-    border-radius: 50%;
-    border: 2px solid #333;
+.auth-form input {
+    background: var(--gray-900);
+    border: 1px solid var(--gray-700);
+    color: var(--white);
+    padding: var(--space-md);
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+    transition: border-color 0.2s;
 }
 
-/* Animation */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--accent);
 }
 
-.disk.playing {
-    animation: spin 4s linear infinite;
+.error-message {
+    display: none;
+    color: var(--accent);
+    font-size: var(--font-size-sm);
+    padding: var(--space-sm);
+    background: rgba(255, 0, 110, 0.1);
+    border-radius: 4px;
+    border: 1px solid var(--accent);
 }
 
-color: var(--gray-300);
-margin-bottom: var(--space-xs);
+.btn-submit {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    margin-top: var(--space-sm);
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background: var(--accent-hover);
+}
+
+.auth-info {
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    background: var(--gray-900);
+    border-radius: 4px;
+    border: 1px solid var(--gray-800);
+}
+
+.auth-info p {
+    font-size: var(--font-size-sm);
+    color: var(--gray-300);
+    margin-bottom: var(--space-xs);
 }
 
 .auth-info p:last-child {
@@ -1435,6 +1434,141 @@ margin-bottom: var(--space-xs);
     animation-play-state: paused;
 }
 
+/* Auth Info */
+.auth-info p {
+    font-size: var(--font-size-sm);
+    color: var(--gray-300);
+    margin-bottom: var(--space-xs);
+}
+
+.auth-info p:last-child {
+    margin-bottom: 0;
+}
+
+.auth-info strong {
+    color: var(--white);
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+    .header {
+        padding: 0 var(--space-md);
+    }
+
+    .logo {
+        font-size: var(--font-size-lg);
+    }
+
+    .user-profile {
+        gap: var(--space-sm);
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .main {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: var(--space-md);
+    }
+
+    .player {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+        height: auto;
+        padding-bottom: var(--space-xl);
+    }
+
+    .player-controls {
+        justify-self: center;
+        order: -1;
+    }
+
+    .player-volume {
+        display: none;
+    }
+
+    .now-playing-header {
+        padding: var(--space-md);
+    }
+
+    .now-playing-content {
+        padding: 0 var(--space-lg) var(--space-xl);
+    }
+
+    .now-playing-media {
+        max-width: 100%;
+    }
+
+    .now-playing-title {
+        font-size: 24px;
+    }
+
+    .now-playing-artist {
+        font-size: var(--font-size-base);
+    }
+
+    .btn-play-large {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+
+    .now-playing-controls {
+        gap: var(--space-md);
+    }
+
+    .btn-control-large {
+        font-size: 20px;
+        padding: var(--space-sm);
+    }
+}
+
+/* ==================== Scrollbar ==================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-600);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-300);
+}
+
+/* ==================== Content Layout (Split View) ==================== */
+.content-layout {
+    display: flex;
+    gap: var(--space-2xl);
+    height: 100%;
+}
+
+.content-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.content-right {
+    width: 400px;
+    display: none;
+    /* Hidden as requested */
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - var(--header-height) - var(--player-height) - var(--space-xl) * 2);
+}
+
 /* Responsive - Hide disk on smaller screens */
 @media (max-width: 1024px) {
     .content-right {
@@ -1444,17 +1578,14 @@ margin-bottom: var(--space-xs);
 
 /* ==================== Modal Disk Animation ==================== */
 .now-playing-media {
-    /* Ensure container allows absolute positioning of disk */
     position: relative;
     z-index: 1;
     overflow: visible;
-    /* Allow disk to slide out */
 }
 
 .now-playing-media img#nowPlayingCover {
     position: relative;
     z-index: 10;
-    /* Above the disk */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -1465,7 +1596,6 @@ margin-bottom: var(--space-xs);
     width: 96%;
     height: 96%;
     z-index: 1;
-    /* Behind image */
     border-radius: 50%;
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -1505,12 +1635,12 @@ margin-bottom: var(--space-xs);
 }
 
 .np-disk-cover {
-    width: 40%;
-    height: 40%;
+    width: 30%;
+    height: 30%;
     border-radius: 50%;
     position: absolute;
-    top: 30%;
-    left: 30%;
+    top: 35%;
+    left: 35%;
     object-fit: cover;
     border: 2px solid #333;
 }
